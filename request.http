@@ -1,0 +1,23 @@
+###
+POST http://localhost:5000/api/v1/superheros HTTP/1.1
+Content-Type: application/json
+
+
+{
+    "superhero": "Chapulin Colorado",
+    "universe": "Chespirito",
+    "superpowers": ["Valentia", "Chipote chillon"],
+    "address":{
+        "city" : "Mexico",
+        "code_zip": "25365"
+    }
+}
+
+###
+GET http://localhost:5000/api/v1/superheros HTTP/1.1
+
+###
+GET http://localhost:5000/api/v1/superheros/ HTTP/1.1
+
+###
+GET http://localhost:5000/api/v1/superheros/63f84294236d7083953dd9cd/ HTTP/1.1

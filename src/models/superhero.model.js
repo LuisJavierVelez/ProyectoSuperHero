@@ -5,7 +5,7 @@ const superhero_schema = mongoose.Schema({
     superpowers: {type: Array, required: true},
     address: {
         type: Object,
-        required: true,
+        require: true,
         city: {type: String, required: true},
         code_zip: {type: String, required: true},
     },

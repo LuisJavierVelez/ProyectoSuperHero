@@ -9,9 +9,9 @@ const superhero_routes_http = express.Router();
 superhero_routes_http.post("/", (req, res) => {
     const new_superhero = superhero_model(req.body);
     new_superhero
-        .save()
-        .then((data) => res.json(data))
-        .catch((err) => res.json({ message: err }));
+      .save()
+      .then((data) => res.json(data))
+      .catch((err) => res.json({ message: err }));
 });
 
 /* Listar todos los registros de la bd mongoose
@@ -22,4 +22,18 @@ superhero_routes_http.get("/", (req, res) => {
         .find()
         .then((data) => res.json(data))
         .catch((err) => res.json({ message: err }));
-});    
+}); 
+/* Consultar un superheroe de forma especifica por el id
+    http: get
+    mongoose method: findById({_id: ?})
+*/
+superhero_routes_http.get("/:superheroId", (req, res) => {
+    const{ superheroId } = req.params;
+    superhero_model
+        .findById({_id: superheroId})
+        .then((data) => res.json(data))
+        .catch((err) => res.json({ message: err }));
+     
+});
+
+module.exports = superhero_routes_http;
